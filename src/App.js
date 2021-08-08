@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    const bck = document.querySelector(".App");
+
+    bck.addEventListener("mousemove", (e) => {
+      bck.style.backgroundPositionX = - 0.01 * e.offsetX + "px";
+      bck.style.backgroundPositionY = - 0.01 * e.offsetY + "px";
+    });
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="mouse-move"></div>
+      <div className="content">
+        <div className="title">
+          Welcome to my world!
+        </div>
+      </div>
     </div>
   );
 }
